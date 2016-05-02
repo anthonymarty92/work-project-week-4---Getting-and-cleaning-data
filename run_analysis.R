@@ -11,7 +11,6 @@ y_test <- read.table("UCI HAR Dataset/test/y_test.txt")
 subject_test <- read.table("UCI HAR Dataset/test/subject_test.txt")
 
 ## read data from test folder
-
 # series of read 128 measurements
 x_train <- read.table("UCI HAR Dataset/train/X_train.txt")
 
@@ -32,8 +31,6 @@ y_data <- rbind(y_train,y_test)
 subject_data <- rbind(subject_train,subject_test)
 
 ######## Question 2
-# link to search string using dplyr:
-# http://stackoverflow.com/questions/22850026/filtering-row-which-contains-a-certain-string-using-dplyr
 library(dplyr)
 
 # read features
@@ -45,7 +42,6 @@ x_data <- x_data[,features_mean_std]
 
 # correct the names of features
 # renames the columns
-# http://rprogramming.net/rename-columns-in-r/
 names(x_data) <- features[features_mean_std,2]
 
 ########## question 3
