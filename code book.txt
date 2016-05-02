@@ -1,0 +1,17 @@
+Code book :
+
+The code follows the 5 steps as indicated in the description of the work project.
+
+The main functions used to solve the questions are:
+1) “rbind” which allows to merge 2 sets of data by rows 
+2) “grepl” : it is used in the framework of regular expression to look up for names in features that contain “mean” or “std”. “which” is then used to filter and select only those names.
+3) There are no specific functions used. The purpose is to add a column named “activity” which containing names of activity that do correspond to the label using numbers.
+4) setting column name for subject_data and merging all data
+5) apply a function (“mean”) then combine results into a new data frame is achieved using “ddply”. Finally, data are saved into a new data frame using “write.table”.
+
+Variables:
+“x_test”, “x_train”, “y_test”, “y_train”, “subject_test” and “subject_train” contain the data from the downloaded files
+“x_data”, “y_data” and “subject_data” are merged data from pairs of data corresponding to “test” and “train”.
+The names of “x_data” is not correct that is why we need to use “features”. “logic_features_mean_std” is first generated and it is a logical vector that contains all matching pattern to either “mean” or “std”. The  “which” is used to extract “features_mean_std” which is a vector containing the indices of the “TRUE” values of “logic_features_mean_std”.
+“complete_data” comes from the merging of “x_data”, “y_data” and “subject_data”
+“dataframe_avg_data” si the new dataframe generated from “mean” function applied to each subject and activity using “ddply” from “dplyr” package. Finally, "dataframe_avg_data.txt" is the file where is saved this new data frame.
